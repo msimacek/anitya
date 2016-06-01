@@ -9,6 +9,7 @@
 anitya default configuration.
 """
 
+import os
 from datetime import timedelta
 
 # Set the time after which the session expires
@@ -18,7 +19,7 @@ PERMANENT_SESSION_LIFETIME = timedelta(hours=1)
 SECRET_KEY = 'changeme please'
 
 # URL to the database
-DB_URL = 'sqlite:////var/tmp/anitya-dev.sqlite'
+DB_URL = os.environ['OPENSHIFT_POSTGRESQL_DB_URL']
 
 # List of admins based on their openid
 ANITYA_WEB_ADMINS = [
